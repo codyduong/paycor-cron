@@ -41,6 +41,7 @@ Cypress.Commands.add('login', () => {
   cy.visit('https://hcm.paycor.com/authentication/signin');
   cy.get('[id$=Username]').fill(Cypress.env('USER'));
   cy.get('[id$=Password]').type(Cypress.env('PASS'), { log: false });
+  cy.screenshot();
   cy.get('.sign-in-button').click();
   // cy.url().then((url) => {
   //   if (url === 'https://hcm.paycor.com/authentication/signin') {
@@ -51,6 +52,6 @@ Cypress.Commands.add('login', () => {
   cy.url().should('include', 'hcm.paycor.com/Portal');
   Cypress.on('uncaught:exception', (err, runnable) => {
     cy.log(JSON.stringify(err));
-    cy.get('.btn-create-punch').should('be.visible');
   });
+  cy.screenshot();
 });
