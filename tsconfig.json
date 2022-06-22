@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "es5",
+    "lib": ["es5", "dom"],
+    "types": ["cypress", "node", "@testing-library/cypress", "cypress-fill-command"]
+  },
+  "include": ["**/*.ts", "cypress.config.js"],
+  "baseUrl": "../node_modules"
+}

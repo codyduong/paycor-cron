@@ -1,0 +1,21 @@
+{
+  "name": "paycor-cron",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "ci": "yarn install --frozen-lockfile",
+    "lint": "scripts/lint.sh",
+    "cypress:open": "cypress open"
+  },
+  "devDependencies": {
+    "@testing-library/cypress": "^8.0.3",
+    "@types/node": "^18.0.0",
+    "cypress": "^10.2.0",
+    "cypress-fill-command": "^1.0.2",
+    "eslint-config-codyduong": "https://github.com/codyduong/eslint-config-codyduong.git#semver:v1.0.0",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "@js-temporal/polyfill": "^0.4.1"
+  }
+}

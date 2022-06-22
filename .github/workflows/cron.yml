@@ -1,0 +1,23 @@
+name: cron
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 13,17,18,22 * * 1-5'
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Download the build folders
+      uses: actions/download-artifact@v2
+      with:
+        name: build
+        path: build
+    - name: Cypress run
+      uses: cypress-io/github-action@v4
+      with:
+        browser: firefox
+        build: yarn build
+        
