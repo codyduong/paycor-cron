@@ -40,8 +40,17 @@ Cypress.Commands.add('verifyNotHoliday', () => {
 Cypress.Commands.add('login', () => {
   cy.visit('https://hcm.paycor.com/authentication/signin');
   cy.get('[id$=Username]').fill(Cypress.env('USER'));
-  cy.get('[id$=Password]').fill(Cypress.env('PASS'));
+  cy.get('[id$=Password]').type(Cypress.env('PASS'), { log: false });
   cy.get('.sign-in-button').click();
-  cy.log(Cypress.env('PAY_MF_PRO'));
+  // cy.url().then((url) => {
+  //   if (url === 'https://hcm.paycor.com/authentication/signin') {
+  //     cy.visit('https://hcm.paycor.com/Portal');
+  //   }
+  // });
+  cy.url().should('contain', 'hcm.paycor.com');
   cy.url().should('include', 'hcm.paycor.com/Portal');
+  Cypress.on('uncaught:exception', (err, runnable) => {
+    cy.log(JSON.stringify(err));
+    cy.get('.btn-create-punch').should('be.visible');
+  });
 });
