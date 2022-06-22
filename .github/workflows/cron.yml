@@ -21,6 +21,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     - run: yarn ci
-    - run: yarn mock-config ${{ secrets.CYPRESS_USER }} ${{ secrets.CYPRESS_PASS }} ${{ secrets.CYPRESS_PAY_MF_PRO }}
+    - run: scripts/mock-config.sh ${{ secrets.CYPRESS_USER }} ${{ secrets.CYPRESS_PASS }} ${{ secrets.CYPRESS_PAY_MF_PRO }}
     - run: yarn cypress run --record --key ${{ secrets.RECORD_KEY }}
         
