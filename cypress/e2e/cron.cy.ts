@@ -12,9 +12,8 @@ describe('Cron job', () => {
   it('Login', () => {
     cy.setCookie('paycorMFProduction', Cypress.env('PAY_MF_PRO'));
     cy.login();
-    //cy.get('.btn-create-punch').click();
-    console.log(
-      Temporal.Now.plainDateTime('iso8601', 'America/Chicago').toString()
-    );
+    cy.get('.btn-create-punch').click();
+    cy.get('.success-banner').should('be.visible');
+    cy.screenshot();
   });
 });
