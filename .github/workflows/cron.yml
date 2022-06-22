@@ -23,4 +23,6 @@ jobs:
     - run: yarn ci
     - run: scripts/mock-config.sh ${{ secrets.CYPRESS_USER }} ${{ secrets.CYPRESS_PASS }} ${{ secrets.CYPRESS_PAY_MF_PRO }}
     - run: yarn cypress run --record --key ${{ secrets.RECORD_KEY }}
+    env: 
+      CYPRESS_VERIFY_TIMEOUT: 100000
         
