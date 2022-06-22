@@ -5,7 +5,8 @@
   "scripts": {
     "ci": "yarn install --frozen-lockfile",
     "lint": "scripts/lint.sh",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "mock-config": "scripts/mock.config.sh"
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.3",
