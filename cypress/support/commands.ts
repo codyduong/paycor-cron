@@ -44,6 +44,7 @@ Cypress.Commands.add('login', () => {
   cy.screenshot();
   cy.get('.sign-in-button').click();
   cy.location('pathname', { timeout: 20000 }).should('include', '/Portal');
+  cy.get('.clock-period').should('be.visible');
   cy.get('.btn-create-punch').should('be.visible');
   cy.screenshot();
 });
