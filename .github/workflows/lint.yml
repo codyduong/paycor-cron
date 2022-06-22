@@ -3,8 +3,14 @@ name: lint
 on:
   push:
     branches: [ master ]
+    paths:
+      - '**.ts'
+      - '**.js'
   pull_request:
     branches: [ master ]
+    paths:
+      - '**.ts'
+      - '**.js'
 
 jobs:
   lint:
