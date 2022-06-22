@@ -43,15 +43,7 @@ Cypress.Commands.add('login', () => {
   cy.get('[id$=Password]').type(Cypress.env('PASS'), { log: false });
   cy.screenshot();
   cy.get('.sign-in-button').click();
-  // cy.url().then((url) => {
-  //   if (url === 'https://hcm.paycor.com/authentication/signin') {
-  //     cy.visit('https://hcm.paycor.com/Portal');
-  //   }
-  // });
-  cy.url().should('contain', 'hcm.paycor.com');
-  cy.url().should('include', 'hcm.paycor.com/Portal');
-  Cypress.on('uncaught:exception', (err, runnable) => {
-    cy.log(JSON.stringify(err));
-  });
+  cy.location('pathname', { timeout: 20000 }).should('include', '/Portal');
+  cy.get('.btn-create-punch').should('be.visible');
   cy.screenshot();
 });
