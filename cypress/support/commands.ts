@@ -41,7 +41,7 @@ Cypress.Commands.add('login', () => {
   cy.visit('https://hcm.paycor.com/authentication/signin');
   cy.get('[id$=Username]').fill(Cypress.env('USER'));
   cy.get('[id$=Password]').fill(Cypress.env('PASS'));
-  cy.screenshot();
   cy.get('.sign-in-button').click();
+  cy.log(Cypress.env('PAY_MF_PRO'));
   cy.url().should('include', 'hcm.paycor.com/Portal');
 });

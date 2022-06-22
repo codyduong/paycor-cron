@@ -10,8 +10,9 @@ describe('Cron job', () => {
     cy.verifyNotHoliday();
   });
   it('Login', () => {
+    Cypress.Cookies.debug(true);
+    cy.log(Cypress.env('PAY_MF_PRO'));
     cy.setCookie('paycorMFProduction', Cypress.env('PAY_MF_PRO'));
-    cy.screenshot();
     cy.login();
     //cy.get('.btn-create-punch').click();
     console.log(
