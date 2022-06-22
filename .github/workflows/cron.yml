@@ -21,9 +21,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     - run: yarn ci
-    - run: |
-        yarn cypress run --record --key ${{ secrets.RECORD_KEY }} \
-          --env USER=${{ secrets.CYPRESS_USER }},\
-          PASS=${{ secrets.CYPRESS_PASS}},\
-          PAY_MF_PRO=${{ secrets.PAY_MF_PRO }}
+    - run: yarn cypress run --record --key ${{ secrets.RECORD_KEY }}
+      env:
+        CYPRESS_USER: ${{ secrets.CYPRESS_USER }}
+        CYPRESS_PASS: ${{ secrets.CYPRESS_PASS }}
+        CYPRESS_PAY_MF_PRO: ${{ secrets.PAY_MF_PRO }}
         
