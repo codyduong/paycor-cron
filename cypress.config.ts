@@ -5,4 +5,6 @@ export default defineConfig({
   e2e: {
     setupNodeEvents(on, config) {},
   },
+  defaultCommandTimeout: 10000,
+  requestTimeout: 10000,
 });
