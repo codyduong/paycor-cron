@@ -11,9 +11,6 @@ describe('Cron job', () => {
   });
   it('Login', () => {
     cy.setCookie('paycorMFProduction', Cypress.env('PAY_MF_PRO'));
-    cy.getCookie('paycorMFProduction').then((c) => {
-      console.warn(c?.value);
-    });
     cy.login();
     //cy.get('.btn-create-punch').click();
     console.log(
