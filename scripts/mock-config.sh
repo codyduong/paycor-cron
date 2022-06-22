@@ -1,0 +1,1 @@
+echo "{\"USER\": \"$1\", \"PASS\": \"$2\", \"PAY_MF_PRO\": \"$3\"}" > cypress.env.json
