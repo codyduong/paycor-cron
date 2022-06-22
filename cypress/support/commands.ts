@@ -42,5 +42,6 @@ Cypress.Commands.add('login', () => {
   cy.get('[id$=Username]').fill(Cypress.env('USER'));
   cy.get('[id$=Password]').fill(Cypress.env('PASS'));
   cy.get('.sign-in-button').click();
+  cy.wait(500);
   cy.url().should('include', 'hcm.paycor.com/Portal');
 });
